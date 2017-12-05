@@ -10,7 +10,7 @@ const express = require('express')
 
 const app = express();
 
-// app.use( express.static( `${__dirname}/../build`));
+app.use( express.static( `${__dirname}/../build`));
 
 app.use(bodyParser.json());
 app.use(session({
@@ -91,6 +91,11 @@ app.post('/api/employee/submit_clockin', controller.submit_clockin);
 app.post('/api/employee/submit_requests', controller.submit_requests);
 app.put('/api/employee/add_clockout', controller.add_clockout);
 app.put('/api/admin/approval', controller.update_approval);
+
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 const PORT = process.env.PORT
 app.listen(PORT, console.log(`Listening on port ${PORT}`))
