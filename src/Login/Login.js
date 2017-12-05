@@ -7,7 +7,7 @@ class Login extends Component {
         return (
             <div className='Login'>
                 <img src={logo} alt=''/>
-                <a href='http://localhost:3005/auth'><button>LOG IN</button></a>
+                <a href={process.env.REACT_APP_LOGIN}><button>LOG IN</button></a>
             </div>
         )
     }
