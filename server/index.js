@@ -92,5 +92,5 @@ app.post('/api/employee/submit_requests', controller.submit_requests);
 app.put('/api/employee/add_clockout', controller.add_clockout);
 app.put('/api/admin/approval', controller.update_approval);
 
-const PORT = 3005;
+const PORT = process.env.PORT
 app.listen(PORT, console.log(`Listening on port ${PORT}`))
